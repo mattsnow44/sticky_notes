@@ -5,3 +5,7 @@ export const addSticky = (sticky) => {
 export const deleteSticky = (id) => {
   return {type: 'DELETE_STICKY', id}
 }
+
+export const updateSticky = (sticky) => {
+  return {type: 'UPDATE_STICKY', sticky}
+}

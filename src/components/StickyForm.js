@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, Button, Modal } from 'semantic-ui-react';
+import { Form, Button, Modal, Icon } from 'semantic-ui-react';
 import {addSticky} from '../actions/stickies';
 import {incId} from '../actions/nextId'
 
@@ -35,9 +35,10 @@ class StickyForm extends React.Component {
         <Modal
           trigger={<Button
             onClick={this.handleOpen}
-            basic
-            color='blue'
+            inverted
+            color='violet'
           >
+            <Icon name='write'/>
             Add A Sticky Note
           </Button>}
           open={this.state.modalOpen}
@@ -45,16 +46,23 @@ class StickyForm extends React.Component {
           basic
           size='small'
         >
+          <Modal.Header>
+            <Icon name='write' />
+            Add A Sticky Note
+          </Modal.Header>
           <Form
             inverted
             onSubmit={this.handleSubmit}
           >
             <Form.Input
+              autoFocus={true}
+              required={true}
               label='Title'
               value={this.state.title}
               onChange={this.handleTitleChange}
             />
             <Form.Input
+              required={true}
               label='Note'
               value={this.state.note}
               onChange={this.handleNoteChange}
